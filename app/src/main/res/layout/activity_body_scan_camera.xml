@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".BodyScanCameraActivity">
+
+    <FrameLayout
+        android:id="@+id/main_content_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/camera_mode_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <SurfaceView
+                android:id="@+id/camera_surface_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/captured_image_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                tools:src="@tools:sample/avatars"
+                tools:visibility="gone"
+                android:contentDescription="Captured or uploaded body image" />
+
+            <include layout="@layout/layout_camera_guide_overlay"
+                android:id="@+id/guide_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"/>
+
+            <include layout="@layout/layout_loading_indicator"
+                android:id="@+id/loading_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/upload_mode_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp"
+            android:visibility="visible"
+            tools:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/upload_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_upload_dashed"
+                android:padding="40dp">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_image"
+                    android:tint="@color/white_60"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="Upload Icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tải Ảnh Body"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chọn một bức ảnh toàn thân đứng thẳng để AI có thể gợi ý outfit phù hợp"
+                    android:textColor="@color/white_70"
+                    android:gravity="center"
+                    android:layout_marginBottom="24dp"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btn_select_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chọn Ảnh"
+                    android:background="@drawable/bg_gradient_button"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/ic_upload"
+                    android:drawablePadding="8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_upload_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Error message placeholder"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="14sp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+            <EditText
+                android:id="@+id/hidden_file_input"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:inputType="none"
+                android:focusable="false" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_error_message"
+            android:id="@+id/error_message_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/bg_gradient_top_overlay"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_x"
+                android:background="@drawable/bg_icon_circle_translucent"
+                android:contentDescription="Close button"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Quét Body"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp" /> </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mode_toggle_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:background="@drawable/bg_mode_toggle"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btn_mode_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Camera"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_camera"
+            android:drawablePadding="4dp"
+            android:background="@drawable/bg_mode_button_selected"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_mode_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tải Lên"
+            android:textColor="@color/white_70"
+            android:drawableLeft="@drawable/ic_upload"
+            android:drawablePadding="4dp"
+            android:background="@android:color/transparent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_controls_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/bg_gradient_bottom_overlay"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/capture_buttons_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/btn_capture_photo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_capture_button"
+                android:visibility="visible"
+                android:contentDescription="Capture Photo" />
+
+            <ImageButton
+                android:id="@+id/btn_retake_photo"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_rotate_ccw"
+                android:background="@drawable/bg_icon_circle_translucent"
+                android:layout_marginEnd="16dp"
+                android:visibility="gone"
+                android:contentDescription="Retake Photo" />
+
+            <ImageButton
+                android:id="@+id/btn_confirm_photo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_check"
+                android:background="@drawable/bg_confirm_button_gradient"
+                android:visibility="gone"
+                android:contentDescription="Confirm Photo" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_instruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đứng thẳng và căn chỉnh body vào khung hình"
+            android:textColor="@color/white_80"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
