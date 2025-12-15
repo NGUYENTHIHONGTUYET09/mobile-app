@@ -12,46 +12,42 @@
         android:gravity="center"
         android:padding="32dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/ic_dialog_alert"
+            android:tint="@color/primary_pink"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvErrorTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:text="Đã xảy ra lỗi"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvErrorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vui lòng thử lại"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             android:gravity="center"
-            android:background="@drawable/bg_error_container"
-            android:padding="24dp">
+            android:layout_marginBottom="24dp"/>
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_camera_error"
-                android:tint="#FCA5A5"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="Camera Error Icon" />
-
-            <TextView
-                android:id="@+id/tv_error_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Camera không được hỗ trợ hoặc bị từ chối quyền truy cập."
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"/>
-
-            <Button
-                android:id="@+id/btn_switch_to_upload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chuyển sang Tải Ảnh"
-                android:background="@drawable/bg_white_button"
-                android:textColor="#E11D48"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textSize="16sp" />
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="Thử Lại"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_gradient_button"/>
 
     </LinearLayout>
+
 </FrameLayout>
+

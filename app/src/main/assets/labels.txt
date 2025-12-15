@@ -1,0 +1,3 @@
+0 Da trắng hồng
+1 Da nâu 
+2 Da đen

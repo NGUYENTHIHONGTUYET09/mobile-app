@@ -10,21 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.mobileapp.databinding.FragmentDashboardBinding;
-
 public class DashboardFragment extends Fragment {
-
-    private FragmentDashboardBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        // Inflate layout directly (avoid generated view binding class)
+        View root = inflater.inflate(com.example.mobileapp.R.layout.fragment_dashboard, container, false);
 
-        final TextView textView = binding.textDashboard;
+        final TextView textView = root.findViewById(com.example.mobileapp.R.id.text_dashboard);
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
@@ -32,6 +28,6 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+        // no binding to clear when not using view binding
     }
 }
