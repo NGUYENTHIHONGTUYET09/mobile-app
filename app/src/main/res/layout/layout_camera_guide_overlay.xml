@@ -10,24 +10,52 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <!-- Center Guide Circle -->
         <View
-            android:id="@+id/body_guide_frame"
-            android:layout_width="240dp"
-            android:layout_height="480dp"
-            android:background="@drawable/bg_body_guide_frame" />
+            android:layout_width="250dp"
+            android:layout_height="350dp"
+            android:background="@android:drawable/dialog_frame"
+            android:alpha="0.5"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đứng thẳng trong khung hình"
+            android:text="Đặt cơ thể vào trong khung"
             android:textColor="@color/white"
-            android:textSize="14sp"
-            android:background="@drawable/bg_instruction_text"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:layout_marginTop="8dp"/>
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="#80000000"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"/>
 
     </LinearLayout>
+
+    <!-- Top Instructions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#80000000">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📷 Hướng dẫn chụp:"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Đứng thẳng, đối diện camera\n• Giơ hai tay ra ngang\n• Toàn bộ cơ thể phải nằm trong khung"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:lineSpacingExtra="4dp"/>
+
+    </LinearLayout>
+
 </FrameLayout>
+
