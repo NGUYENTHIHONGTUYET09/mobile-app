@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">MobileApp</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -14,4 +13,17 @@
     <string name="back_button">Back</string>
     <string name="camera_icon">Camera</string>
     <string name="body_image">Body Image</string>
+
+    <string name="app_name">Fashion AI</string>
+    <string name="login_title">Đăng nhập</string>
+    <string name="login_subtitle">Chào mừng bạn trở lại!</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="email_hint">your@email.com</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="login_button">Đăng nhập</string>
+    <string name="or">hoặc</string>
+    <string name="no_account">Chưa có tài khoản?</string>
+    <string name="register_now">Đăng ký ngay</string>
+    <string name="personal_style_assistant">Your Personal Style Assistant</string>
 </resources>

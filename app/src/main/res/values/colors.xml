@@ -40,4 +40,11 @@
     <!-- Weather colors -->
     <color name="weather_sunny">#FFA726</color>
     <color name="weather_text">#FFFFFF</color>
+
+    <color name="primary_gradient_start">#F06292</color>
+    <color name="primary_gradient_end">#FF8A65</color>
+    <color name="text_dark">#212121</color>
+    <color name="text_hint">#9E9E9E</color>
+    <color name="input_background">#F5F5F5</color>
+    <color name="link_orange">#FF6F00</color>
 </resources>
