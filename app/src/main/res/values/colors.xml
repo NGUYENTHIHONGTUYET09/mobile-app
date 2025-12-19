@@ -7,37 +7,4 @@
     <color name="black">#000000</color>
     <color name="rose_400">#F472B6</color>
     <color name="orange_400">#FB923C</color>
-
-    <!-- Material color defaults required by themes.xml -->
-    <color name="purple_200">#BB86FC</color>
-    <color name="purple_500">#6200EE</color>
-    <color name="purple_700">#3700B3</color>
-    <color name="teal_200">#03DAC5</color>
-    <color name="teal_700">#018786</color>
-
-    <!-- Fashion Assistant Colors -->
-    <color name="primary_pink">#FF6B8E</color>
-    <color name="primary_orange">#FF9B5A</color>
-    <color name="background_cream">#FFF8F0</color>
-    <color name="card_white">#FFFFFFFF</color>
-    <color name="text_primary">#C81E5B</color>
-    <color name="text_secondary">#666666</color>
-    <color name="success_green">#C8E6C9</color>
-    <color name="success_text">#4CAF50</color>
-
-    <!-- Color Choices -->
-    <color name="color_red">#FF6B8E</color>
-    <color name="color_pink">#FF69B4</color>
-    <color name="color_orange">#FFA500</color>
-    <color name="color_yellow">#FFD700</color>
-    <color name="color_green">#00FF7F</color>
-    <color name="color_blue">#4A90E2</color>
-    <color name="color_purple">#9B59B6</color>
-    <color name="color_white_choice">#FFFFFF</color>
-    <color name="color_black_choice">#000000</color>
-    <color name="color_beige">#F5E6D3</color>
-
-    <!-- Weather colors -->
-    <color name="weather_sunny">#FFA726</color>
-    <color name="weather_text">#FFFFFF</color>
 </resources>

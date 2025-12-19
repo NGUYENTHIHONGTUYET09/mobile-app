@@ -3,15 +3,4 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="preview">Preview</string>
-    <string name="open_body_scan">Open Body Scan</string>
-    <string name="show_all_screens">Show All Screens</string>
-
-    <string name="outfit_suggestions">Outfit Suggestions</string>
-    <string name="preview_desc">Preview</string>
-    <string name="ai_note">Gợi ý dựa trên mô hình AI (mô phỏng)</string>
-    <string name="done">Done</string>
-    <string name="back_button">Back</string>
-    <string name="camera_icon">Camera</string>
-    <string name="body_image">Body Image</string>
 </resources>
